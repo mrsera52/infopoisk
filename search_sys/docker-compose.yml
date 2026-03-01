@@ -1,0 +1,9 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: sport_search_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo:/data/db
+    restart: unless-stopped

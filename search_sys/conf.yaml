@@ -1,0 +1,42 @@
+db:
+  connection_string: 'mongodb://localhost:27017/'
+  database: 'sport_search'
+  collection: 'articles'
+
+crawler:
+  delay_ms: 400
+  timeout_s: 25
+  max_retries: 3
+  cache_ttl_s: 86400
+  page_limit: 300000
+  verbose: false
+
+wikipedia:
+  api_url: 'https://en.wikipedia.org/w/api.php'
+  user_agent: 'SportSearch/1.0 (educational project)'
+
+sources:
+  - name: 'wiki_sport'
+    method: 'wikipedia'
+    queries:
+      - 'football'
+      - 'basketball'
+      - 'tennis'
+      - 'Olympic Games'
+      - 'FIFA World Cup'
+      - 'ice hockey'
+      - 'baseball'
+      - 'swimming sport'
+      - 'boxing'
+      - 'cycling sport'
+      - 'Formula One'
+      - 'rugby union'
+      - 'cricket sport'
+      - 'golf sport'
+      - 'athletics'
+      - 'volleyball'
+      - 'martial arts'
+      - 'gymnastics'
+      - 'skiing sport'
+      - 'esports'
+    max_articles: 35000

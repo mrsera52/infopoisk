@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportSearch</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 { font-size: 2.4rem; margin-bottom: 24px; }
+        .search-box {
+            display: flex;
+            width: 90%;
+            max-width: 580px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .search-box input[type="text"] {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+        .search-box button {
+            padding: 12px 24px;
+            background: #1a73e8;
+            border: none;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .search-box button:hover { background: #1558b0; }
+        .hints {
+            margin-top: 24px;
+            width: 90%;
+            max-width: 580px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+        .hints code {
+            background: #eee;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>SportSearch</h1>
+    <form class="search-box" action="/search" method="get">
+        <input type="text" name="q" placeholder="Search..." autofocus required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="hints">
+        <strong>Query syntax:</strong>
+        <ul style="padding-left: 18px;">
+            <li>Boolean: <code>football && goal</code>, <code>tennis || badminton</code>, <code>!relay</code></li>
+            <li>Grouping: <code>(football || rugby) && world</code></li>
+            <li>Phrase: <code>"penalty shootout"</code></li>
+            <li>Proximity: <code>"world record" / 5</code></li>
+            <li>Free text: <code>olympic games history</code> (TF-IDF ranked)</li>
+        </ul>
+    </div>
+</body>
+</html>
